@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Picture</title>
+  <link rel="icon" href="https://placekitten.com/32/32" type="image/png">
+  <style>
+      /* General styles */
+      body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1C1C1C;
+      }
+
+      /* Style for centering image */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        transition: background-color 0.5s ease;
+      }
+
+      /* Style for centering image */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        background-color: pink;
+        transition: background-color 0.5s ease;
+      }
+
+      #cat-image {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      #cat-image:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        transform: scale(1.02);
+      }
+
+      /* Style for title and message */
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      #message {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      /* Style for button */
+      #cat-button {
+        background-color: #f06;
+        color: #fff;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      #cat-button:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        background-color: #d04;
+      }
+
+      #cat-button:focus {
+        outline: none;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <h1>Cat Picture</h1>
+  <img id="cat-image" src="https://placekitten.com/500/500" alt="Cute cat picture">
+  <button id="cat-button">Change Cat</button>
+  <div id="message">I love you, Hyelim</div>
+</div>
+
+<script>
+  let catImage = document.getElementById('cat-image');
+  let catButton = document.getElementById('cat-button');
+  let container = document.querySelector('.container');
+
+  catButton.addEventListener('click', function() {
+    // Generate a random cat image using the PlaceKitten service
+    let randomWidth = Math.floor(Math.random() * 500) + 100; // Random width between 100 and 600 pixels
+    let randomHeight = Math.floor(Math.random() * 500) + 100; // Random height between 100 and 600 pixels
+    let randomImage = `https://placekitten.com/${randomWidth}/${randomHeight}`;
+
+    // Set the cat image source to the random image
+    catImage.src = randomImage;
+  });
+</script>
